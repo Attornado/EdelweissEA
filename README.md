@@ -51,7 +51,11 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
 
 - Average True Range (ATR): A volatility indicator that measures the average range of price movements over a given period of time. It is based on the true range, which is the greatest of the following: the current high minus the current low, the absolute value of the current high minus the previous close, or the absolute value of the current low minus the previous close. The formula for the ATR is: $$ATR = \frac{1}{n} \sum_{i=1}^n TR_i$$ where $n$ is the period of the ATR, and $TR_i$ is the true range of the $i$-th period.
 
-- Average Directional Index (ADX): A trend strength indicator that measures the degree of directional movement in the market. It is based on the directional movement indicators, which are the plus directional indicator (+DI) and the minus directional indicator (-DI). The +DI measures the strength of the upward movement, while the -DI measures the strength of the downward movement. The formula for the ADX is: $$ADX = 100 \times SMA\left(\frac{|+DI - -DI|}{+DI + -DI}, n\right)$$ where $SMA(x, n)$ is the simple moving average of $x$ over $n$ periods. To calculate +DI and -DI, one needs price data consisting of high, low, and closing prices each period (typically each day). One first calculates the directional movement (+DM and -DM):
+- Average Directional Index (ADX): A trend strength indicator that measures the degree of directional movement in the market. It is based on the directional movement indicators, which are the plus directional indicator (+DI) and the minus directional indicator (-DI). The +DI measures the strength of the upward movement, while the -DI measures the strength of the downward movement. The formula for the ADX is:
+
+$$ADX = 100 \times SMA\left(\frac{|+DI - -DI|}{+DI + -DI}, n\right)$$
+
+where $SMA(x, n)$ is the simple moving average of $x$ over $n$ periods. To calculate +DI and -DI, one needs price data consisting of high, low, and closing prices each period (typically each day). One first calculates the directional movement (+DM and -DM):
 
 $$\begin{aligned}
 &\text{UpMove} = \text{today's high} - \text{yesterday's high}\\

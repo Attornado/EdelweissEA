@@ -100,7 +100,7 @@ $$\begin{aligned}
 &-DI = 100 \times \frac{SMA(-DM, n)}{ATR}\\
 \end{aligned}$$ 
 
-where $SMA(+DM, n)$ and $SMA(-DM, n)$ are the simple moving averages of +DM and -DM over $n$ periods, and $ATR$ is the average true range, which is a measure of volatility.
+where $\tilde{SMA}(+DM, n)$ and $\tilde{SMA}(-DM, n)$ are the smoothed moving averages of +DM and -DM over $n$ periods, and $ATR$ is the average true range, which is a measure of volatility.
 
 - **Parabolic SAR (PSAR)**: A trend-following indicator that shows the direction and potential reversal points of the market. It is represented by a series of dots that are placed either above or below the price, depending on the trend direction. The formula for the PSAR is: $$PSAR_t = PSAR_{t-1} + AF \times (EP - PSAR_{t-1})$$ where $PSAR_t$ is the PSAR value at time $t$, $PSAR_{t-1}$ is the previous PSAR value, $AF$ is the acceleration factor, and $EP$ is the extreme point. The acceleration factor is a variable that increases by a step (usually 0.02) every time a new extreme point is reached, up to a maximum value (usually 0.2). The extreme point is the highest high or the lowest low of the current trend. The PSAR switches from above to below the price or vice versa when the price crosses the PSAR value.
 

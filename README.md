@@ -3,7 +3,7 @@
 ## Project Description:
 
 ### Compelling Introduction:
-EdelweissEA is an educational trading bot that combines that incorporates a multi-indicator approach, including EMA, Stochastic/Awesome oscillators, ATR, ADX, Parabolic SAR, and Bollinger Bands, to enhance trading decisions. Dynamic risk management strategies based on ATR ensure optimized stop-loss and take-profit levels. In the plan to integrate the power of MetaTrader 4 integration with advanced machine learning techniques, specifically PyTorch-based FLF-LSTM models. This integration will allow for automated execution while leveraging sophisticated algorithms for future signal generation and strategy refinement.
+EdelweissEA is an educational trading bot that combines that incorporates a multi-indicator approach, including EMA, Stochastic/Awesome oscillators, ATR, ADX, Parabolic SAR, and Bollinger Bands, to enhance trading decisions. Dynamic risk management strategies based on ATR ensure optimized stop-loss and take-profit levels. In the plan to integrate the power of MetaTrader 4 integration with advanced machine learning techniques, specifically PyTorch-based [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183) models. We provide a PyTorch implementation of this model. This integration will allow for automated execution while leveraging sophisticated algorithms for future signal generation and strategy refinement.
 
 ### Target Audience:
 EdelweissEA is designed for algorithmic trading students aiming to experiment with MetaTrader 4 users, and machine learning practitioners/students interested in finance who seek to leverage advanced technologies for automated trading strategies.
@@ -29,10 +29,10 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
 4. Follow specific instructions for EA installation.
 
 ### Usage Guide:
-1. Load the EA onto MetaTrader 4 by copying the EdelweissExpert.mq4 (usually under the <MetaTraderDir>/Experts/.
+1. Load the EA onto MetaTrader 4 by copying the `EdelweissExpert.mq4` (usually under the `<MetaTraderDir>/Experts/` directory).
 2. Configure settings according to your preferences.
 3. Run the EA on the strategy tester.
-4. For the FLF-LSTM, you can simply run the notebook file, as it is self-contained.
+4. For [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183), you can simply run the notebook file, as it is self-contained.
 
 ### Troubleshooting:
 - N/A
@@ -40,9 +40,21 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
 ## Technical Details:
 
 ### Architecture:
-- Overview of data flow, indicator interaction, and decision-making processes.
+- Edelweiss Expert Advisor (EA) is a customizable automated trading system developed using MQL4 programming language for MetaTrader 4 platform. This EA employs various strategies and indicators to generate buy and sell signals based on user inputs and historical data analysis. Here is a summary of its main features:
 
-### Indicators:
+1. **Operation Parameters**: These settings allow users to configure basic aspects such as trade lot sizes, allowed slippage, maximum risk per transaction, trailing stops, and default take profits and stop losses. Users can enable or disable optimization options and define specific behavior regarding opening and closing trades.
+
+2. **Opening/Closing Parameters**: The `buy_signals_t` and `sell_signals_t` variables control how many consecutive signals must be detected before executing a corresponding buy or sell order. By setting these values greater than zero, traders can filter out potential noise and avoid unnecessary transactions.
+
+3. **Technical Indicator Settings**: Various technical indicator configurations are available within the EA script. Some notable examples include moving averages, Average True Range (ATR), Stochastic Oscillator, Awesome Oscillator, and Bollinger Bands. Traders can fine-tune each individual indicator parameter to suit their preferences and desired trading style.
+
+4. **Advanced Strategies**: In addition to traditional indicator combinations like MA crossing, the EA includes more complex strategies like identifying bullish and bearish saucers through Awesome Oscillator evaluation in combination with stochastic oscillator. Moreover, some components consider multiple timeframes simultaneously to provide better context when generating signals.
+
+5. **Visualization & Logging Options**: Verbose logging allows developers and experienced traders to understand the decision-making process behind every generated signal and transaction execution. Furthermore, visual representation tools help identify trends and patterns directly within charts while monitoring real-time performance.
+
+The primary goal of this EA appears to be providing flexibility and adaptability across different markets, assets, and trader requirements. It combines several popular technical indicators into advanced strategies tailored towards detecting profitable opportunities while minimizing risks associated with volatile financial instruments.
+
+### Used Indicators:
 - Exponential Moving Average (EMA): A type of moving average that gives more weight to recent prices and reacts faster to price changes. It is calculated by multiplying the current price by a smoothing factor and adding it to the previous EMA value. The smoothing factor is calculated as: $$\alpha = \frac{2}{n + 1}$$ where $n$ is the period of the EMA. The formula for the EMA is: $$EMA_t = \alpha \times P_t + (1 - \alpha) \times EMA_{t-1}$$ where $EMA_t$ is the EMA value at time $t$, $P_t$ is the price at time $t$, and $EMA_{t-1}$ is the previous EMA value.
 
 - Stochastic Oscillator: A momentum indicator that measures the position of the current price relative to its high-low range over a given period of time. It consists of two lines: the %K line and the %D line. The %K line is the fast line that shows the current position of the price relative to the high-low range. The %D line is the slow line that shows the smoothed average of the %K line. The formula for the %K line is: $$\%K = \frac{C_t - L_n}{H_n - L_n} \times 100$$ where $C_t$ is the current closing price, $L_n$ is the lowest price of the last $n$ periods, and $H_n$ is the highest price of the last $n$ periods. The formula for the %D line is: $$\%D = SMA(\%K, m)$$ where $SMA(\%K, m)$ is the simple moving average of the %K line over $m$ periods.
@@ -65,14 +77,19 @@ $$\begin{aligned}
 $$\begin{aligned}
 &+DI = 100 \times \frac{SMA(+DM, n)}{ATR}\\
 &-DI = 100 \times \frac{SMA(-DM, n)}{ATR}\\
-\end{aligned}$$ where $SMA(+DM, n)$ and $SMA(-DM, n)$ are the simple moving averages of +DM and -DM over $n$ periods, and $ATR$ is the average true range, which is a measure of volatility.
+\end{aligned}$$ 
+
+where $SMA(+DM, n)$ and $SMA(-DM, n)$ are the simple moving averages of +DM and -DM over $n$ periods, and $ATR$ is the average true range, which is a measure of volatility.
 
 - Parabolic SAR (PSAR): A trend-following indicator that shows the direction and potential reversal points of the market. It is represented by a series of dots that are placed either above or below the price, depending on the trend direction. The formula for the PSAR is: $$PSAR_t = PSAR_{t-1} + AF \times (EP - PSAR_{t-1})$$ where $PSAR_t$ is the PSAR value at time $t$, $PSAR_{t-1}$ is the previous PSAR value, $AF$ is the acceleration factor, and $EP$ is the extreme point. The acceleration factor is a variable that increases by a step (usually 0.02) every time a new extreme point is reached, up to a maximum value (usually 0.2). The extreme point is the highest high or the lowest low of the current trend. The PSAR switches from above to below the price or vice versa when the price crosses the PSAR value.
 
 - Bollinger Bands: A volatility indicator that consists of three lines: the middle line, which is a simple moving average of the price, and the upper and lower bands, which are derived from the standard deviation of the price. The formula for the Bollinger Bands is: $$Middle = SMA(P, n)$$ $$Upper = Middle + k \times SD(P, n)$$ $$Lower = Middle - k \times SD(P, n)$$ where $SMA(P, n)$ is the simple moving average of the price over $n$ periods, $SD(P, n)$ is the standard deviation of the price over $n$ periods, and $k$ is a constant that determines the width of the bands (usually 2).
 
+### Results
+- We provide a folder including all the results of appliying an genetic-algorithm-optimized EdelweissEA strategy to different timeframes (15 min, 30 min, 1 hour, daily) on EURUSD FTX historical data.
+
 ### FLF-LSTM Integration (Future):
-- We plan to empower the EdelweissEA using the FLF-LSTM forecasting framework, providing additional insights to enabling enhanced dynamic enter/exit signals.
+- We plan to empower the EdelweissEA using the FLF-LSTM forecasting framework, providing additional insights to enabling enhanced dynamic enter/exit signals. Please refer to the original [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183) paper for more information.
 
 ## Disclaimer:
 - **Risk Warning:** This code is intended for educational purposes only. Trading involves significant risk of loss. Users should exercise caution and implement proper risk management strategies. The creators of EdelweissEA are not liable for any financial losses incurred.

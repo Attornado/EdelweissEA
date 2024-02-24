@@ -1,45 +1,66 @@
 # EdelweissEA: A Hybrid Expert Advisor for MetaTrader 4 (in future with PyTorch-Powered FLF-LSTM Integration)
 
-## Project Description:
+## Table of Contents
+- [EdelweissEA: A Hybrid Expert Advisor for MetaTrader 4 (in future with PyTorch-Powered FLF-LSTM Integration)](#edelweissea-a-hybrid-expert-advisor-for-metatrader-4-in-future-with-pytorch-powered-flf-lstm-integration)
+  - [Project Description](#project-description)
+    - [Compelling Introduction](#compelling-introduction)
+    - [Target Audience](#target-audience)
+    - [Key Features](#key-features)
+  - [Installation and Usage](#installation-and-usage)
+    - [Prerequisites](#prerequisites)
+    - [Installation Steps](#installation-steps)
+    - [Usage Guide](#usage-guide)
+    - [Troubleshooting](#troubleshooting)
+  - [Technical Details](#technical-details)
+    - [Architecture](#architecture)
+    - [Used Indicators](#used-indicators)
+    - [Results](#results)
+    - [FLF-LSTM Integration (Future)](#flf-lstm-integration-future)
+  - [Disclaimer](#disclaimer)
+  - [Contributing](#contributing)
+    - [Contribution Guidelines](#contribution-guidelines)
+    - [License](#license)
 
-### Compelling Introduction:
+## Project Description
+
+### Compelling Introduction
 EdelweissEA is an educational trading bot that combines that incorporates a multi-indicator approach, including EMA, Stochastic/Awesome oscillators, ATR, ADX, Parabolic SAR, and Bollinger Bands, to enhance trading decisions. Dynamic risk management strategies based on ATR ensure optimized stop-loss and take-profit levels. In the plan to integrate the power of MetaTrader 4 integration with advanced machine learning techniques, specifically PyTorch-based [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183) models. We provide a PyTorch implementation of this model. This integration will allow for automated execution while leveraging sophisticated algorithms for future signal generation and strategy refinement.
 
-### Target Audience:
+### Target Audience
 EdelweissEA is designed for algorithmic trading students aiming to experiment with MetaTrader 4 users, and machine learning practitioners/students interested in finance who seek to leverage advanced technologies for automated trading strategies.
 
-### Key Features:
+### Key Features
 - **Indicator Expertise:** Incorporates diverse trend indicators and their combination according to best practices.
 - **Risk Management Focus:** Implements ATR-based dynamic stop-loss and take-profit.
 - **Customization Flexibility:** Allows configuration for different market conditions and user preferences.
 - **Future Integration:** Planned integration of FLF-LSTM model for enhanced predictive, data-driven capabilities to optimize trading strategies.
 
-## Installation and Usage:
+## Installation and Usage
 
-### Prerequisites:
+### Prerequisites
 - MetaTrader 4
 - Python
 - PyTorch 2.0+
 - MatplotLib 
 
-### Installation Steps:
+### Installation Steps
 1. Set up MetaTrader 4 on your system.
 2. Install Python and required libraries.
 3. Clone the repository.
 4. Follow specific instructions for EA installation.
 
-### Usage Guide:
+### Usage Guide
 1. Load the EA onto MetaTrader 4 by copying the `EdelweissExpert.mq4` (usually under the `<MetaTraderDir>/Experts/` directory).
 2. Configure settings according to your preferences.
 3. Run the EA on the strategy tester.
 4. For [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183), you can simply run the notebook file, as it is self-contained.
 
-### Troubleshooting:
+### Troubleshooting
 - N/A
 
-## Technical Details:
+## Technical Details
 
-### Architecture:
+### Architecture
 - Edelweiss Expert Advisor (EA) is a customizable automated trading system developed using MQL4 programming language for MetaTrader 4 platform. This EA employs various strategies and indicators to generate buy and sell signals based on user inputs and historical data analysis. Here is a summary of its main features:
 
 1. **Operation Parameters**: These settings allow users to configure basic aspects such as trade lot sizes, allowed slippage, maximum risk per transaction, trailing stops, and default take profits and stop losses. Users can enable or disable optimization options and define specific behavior regarding opening and closing trades.
@@ -54,7 +75,7 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
 
 The primary goal of this EA appears to be providing flexibility and adaptability across different markets, assets, and trader requirements. It combines several popular technical indicators into advanced strategies tailored towards detecting profitable opportunities while minimizing risks associated with volatile financial instruments.
 
-### Used Indicators:
+### Used Indicators
 - Exponential Moving Average (EMA): A type of moving average that gives more weight to recent prices and reacts faster to price changes. It is calculated by multiplying the current price by a smoothing factor and adding it to the previous EMA value. The smoothing factor is calculated as: $$\alpha = \frac{2}{n + 1}$$ where $n$ is the period of the EMA. The formula for the EMA is: $$EMA_t = \alpha \times P_t + (1 - \alpha) \times EMA_{t-1}$$ where $EMA_t$ is the EMA value at time $t$, $P_t$ is the price at time $t$, and $EMA_{t-1}$ is the previous EMA value.
 
 - Stochastic Oscillator: A momentum indicator that measures the position of the current price relative to its high-low range over a given period of time. It consists of two lines: the %K line and the %D line. The %K line is the fast line that shows the current position of the price relative to the high-low range. The %D line is the slow line that shows the smoothed average of the %K line. The formula for the %K line is: $$\%K = \frac{C_t - L_n}{H_n - L_n} \times 100$$ where $C_t$ is the current closing price, $L_n$ is the lowest price of the last $n$ periods, and $H_n$ is the highest price of the last $n$ periods. The formula for the %D line is: $$\%D = SMA(\%K, m)$$ where $SMA(\%K, m)$ is the simple moving average of the %K line over $m$ periods.
@@ -88,22 +109,16 @@ where $SMA(+DM, n)$ and $SMA(-DM, n)$ are the simple moving averages of +DM and 
 ### Results
 - We provide a folder including all the results of appliying an genetic-algorithm-optimized EdelweissEA strategy to different timeframes (15 min, 30 min, 1 hour, daily) on EURUSD FTX historical data.
 
-### FLF-LSTM Integration (Future):
+### FLF-LSTM Integration (Future)
 - We plan to empower the EdelweissEA using the FLF-LSTM forecasting framework, providing additional insights to enabling enhanced dynamic enter/exit signals. Please refer to the original [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183) paper for more information.
 
-## Disclaimer:
+## Disclaimer
 - **Risk Warning:** This code is intended for educational purposes only. Trading involves significant risk of loss. Users should exercise caution and implement proper risk management strategies. The creators of EdelweissEA are not liable for any financial losses incurred.
 
-## Contributing:
+## Contributing
 
-### Contribution Guidelines:
+### Contribution Guidelines
 - Feel free to report any bug and contribute to the repository by opening a pull request ^^
 
-### License:
+### License
 - Distributed under [MIT License](https://opensource.org/licenses/MIT).
-
-## Additional Considerations:
-
-- **Clarity and Concision:** Ensure the readme is well-structured and uses clear language.
-- **Visual Appeal:** Consider incorporating images, diagrams, or code snippets.
-- **Community Engagement:** Encourage feedback and contributions via GitHub issues and discussion forums.

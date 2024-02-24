@@ -52,6 +52,7 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
 - Average True Range (ATR): A volatility indicator that measures the average range of price movements over a given period of time. It is based on the true range, which is the greatest of the following: the current high minus the current low, the absolute value of the current high minus the previous close, or the absolute value of the current low minus the previous close. The formula for the ATR is: $$ATR = \frac{1}{n} \sum_{i=1}^n TR_i$$ where $n$ is the period of the ATR, and $TR_i$ is the true range of the $i$-th period.
 
 - Average Directional Index (ADX): A trend strength indicator that measures the degree of directional movement in the market. It is based on the directional movement indicators, which are the plus directional indicator (+DI) and the minus directional indicator (-DI). The +DI measures the strength of the upward movement, while the -DI measures the strength of the downward movement. The formula for the ADX is: $$ADX = 100 \times SMA\left(\frac{|+DI - -DI|}{+DI + -DI}, n\right)$$ where $SMA(x, n)$ is the simple moving average of $x$ over $n$ periods. To calculate +DI and -DI, one needs price data consisting of high, low, and closing prices each period (typically each day). One first calculates the directional movement (+DM and -DM):
+
   $$\begin{aligned}
   &\text{UpMove} = \text{today's high} - \text{yesterday's high}\\
   &\text{DownMove} = \text{yesterday's low} - \text{today's low}\\
@@ -65,6 +66,7 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
   &+DI = 100 \times \frac{SMA(+DM, n)}{ATR}\\
   &-DI = 100 \times \frac{SMA(-DM, n)}{ATR}\\
   \end{aligned}$$
+  
   where $SMA(+DM, n)$ and $SMA(-DM, n)$ are the simple moving averages of +DM and -DM over $n$ periods, and $ATR$ is the average true range, which is a measure of volatility.
 
 - Parabolic SAR (PSAR): A trend-following indicator that shows the direction and potential reversal points of the market. It is represented by a series of dots that are placed either above or below the price, depending on the trend direction. The formula for the PSAR is: $$PSAR_t = PSAR_{t-1} + AF \times (EP - PSAR_{t-1})$$ where $PSAR_t$ is the PSAR value at time $t$, $PSAR_{t-1}$ is the previous PSAR value, $AF$ is the acceleration factor, and $EP$ is the extreme point. The acceleration factor is a variable that increases by a step (usually 0.02) every time a new extreme point is reached, up to a maximum value (usually 0.2). The extreme point is the highest high or the lowest low of the current trend. The PSAR switches from above to below the price or vice versa when the price crosses the PSAR value.

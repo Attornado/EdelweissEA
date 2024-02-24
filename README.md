@@ -1,4 +1,4 @@
-# EdelweissEA: A Hybrid Expert Advisor for MetaTrader 4 (in future with PyTorch-Powered FLF-LSTM Integration)
+# EdelweissEA: A Hybrid Expert Advisor for MetaTrader 4
 
 ## Table of Contents
 - [EdelweissEA: A Hybrid Expert Advisor for MetaTrader 4 (in future with PyTorch-Powered FLF-LSTM Integration)](#edelweissea-a-hybrid-expert-advisor-for-metatrader-4-in-future-with-pytorch-powered-flf-lstm-integration)

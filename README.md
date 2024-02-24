@@ -53,7 +53,7 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
 1. Load the EA onto MetaTrader 4 by copying the `EdelweissExpert.mq4` (usually under the `<MetaTraderDir>/MQL4/Experts/` directory).
 2. Configure settings according to your preferences.
 3. Run the EA on the strategy tester.
-4. For [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183), you can simply run the notebook file, as it is self-contained.
+4. For [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183), you can simply run the notebook file changing the paths according to your needs, as it is self-contained.
 
 ### Troubleshooting
 - N/A

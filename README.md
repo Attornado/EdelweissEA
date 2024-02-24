@@ -50,10 +50,10 @@ EdelweissEA is designed for algorithmic trading students aiming to experiment wi
 4. Follow specific instructions for EA installation.
 
 ### Usage Guide
-1. Load the EA onto MetaTrader 4 by copying the `EdelweissExpert.mq4` (usually under the `<MetaTraderDir>/MQL4/Experts/` directory).
+1. Load the EA onto MetaTrader 4 by copying the `Experts/EdelweissExpert.mq4` (usually under the `<MetaTraderDir>/MQL4/Experts/` directory).
 2. Configure settings according to your preferences.
 3. Run the EA on the strategy tester.
-4. For [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183), you can simply run the notebook file changing the paths according to your needs, as it is self-contained.
+4. For [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183) found in the `FLF-LSTM/` folder, you can simply run the notebook file changing the paths according to your needs, as it is self-contained.
 
 ### Troubleshooting
 - N/A
@@ -107,7 +107,7 @@ where $\tilde{SMA}(+DM, n)$ and $\tilde{SMA}(-DM, n)$ are the smoothed moving av
 - **Bollinger Bands**: A volatility indicator that consists of three lines: the middle line, which is a simple moving average of the price, and the upper and lower bands, which are derived from the standard deviation of the price. The formula for the Bollinger Bands is: $$Middle = SMA(P, n)$$ $$Upper = Middle + k \times SD(P, n)$$ $$Lower = Middle - k \times SD(P, n)$$ where $SMA(P, n)$ is the simple moving average of the price over $n$ periods, $SD(P, n)$ is the standard deviation of the price over $n$ periods, and $k$ is a constant that determines the width of the bands (usually 2).
 
 ### Results
-- We provide a folder including all the results of appliying an genetic-algorithm-optimized EdelweissEA strategy to different timeframes (15 min, 30 min, 1 hour, daily) on EURUSD FTX historical data.
+- We provide a folder (`OptimizationResults`) including all the results of appliying an genetic-algorithm-optimized EdelweissEA strategy to different timeframes (15 min, 30 min, 1 hour, daily) on EURUSD FTX historical data.
 
 ### FLF-LSTM Integration (Future)
 - We plan to empower the EdelweissEA using the FLF-LSTM forecasting framework, providing additional insights to enabling enhanced dynamic enter/exit signals. Please refer to the original [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183) paper for more information.

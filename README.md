@@ -23,7 +23,7 @@
 
 ## Project Description
 
-### Compelling Introduction
+### Introduction
 EdelweissEA is an educational trading bot that combines that incorporates a multi-indicator approach, including EMA, Stochastic/Awesome oscillators, ATR, ADX, Parabolic SAR, and Bollinger Bands, to enhance trading decisions. Dynamic risk management strategies based on ATR ensure optimized stop-loss and take-profit levels. In the plan to integrate the power of MetaTrader 4 integration with advanced machine learning techniques, specifically PyTorch-based [FLF-LSTM](https://www.sciencedirect.com/science/article/abs/pii/S1568494620307183) models. We provide a PyTorch implementation of this model. This integration will allow for automated execution while leveraging sophisticated algorithms for future signal generation and strategy refinement.
 
 ### Target Audience
